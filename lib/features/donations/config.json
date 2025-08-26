@@ -1,0 +1,80 @@
+{
+  "feature_name": "Donations",
+  "apis": [
+    {
+      "name": "getDonations",
+      "endpoint": "dashboard/categories/index",
+      "request_type": "GET",
+      "pagination": true,
+      "query_parameters": [
+        { "type": "int", "name": "page" },
+        { "type": "String", "name": "expire" },
+        { "type": "String", "name": "donner" },
+        { "type": "int", "name": "sector" }
+      ],
+      "list_response_model": [
+        { "name": "DonationModel", "fields": [
+          { "name": "id", "type": "int" },
+          { "name": "donner", "type": "String" },
+          { "name": "subjectName", "type": "String" ,"json_key":"subject_name" },
+          { "name": "expireAt", "type": "String" , "json_key":"expire_at" },
+          { "name": "createdAt", "type": "String" , "json_key":"created_at" },
+          { "name": "quantity", "type": "int"  },
+          { "name": "description", "type": "String"},
+          {"name":"sector","type":"SectorMode"}
+          ] },
+          { "name": "SectorMode", "fields": [
+          { "name": "id", "type": "int" },
+          { "name": "name", "type": "String" }
+          ] }
+      ]
+    },
+    {
+      "name": "createDonation",
+      "endpoint": "dashboard/donations/create",
+      "request_type": "POST",
+      "body": {
+        "id": "int",
+        "donner":"String",
+        "quantity":"int",
+        "description":"String",
+        "expired_at":"String"
+      },
+      "response_model": {
+        "name": "CreateDonationModel",
+        "fields": [{ "name": "message", "type": "String" }]
+      }
+    },
+     {
+      "name": "updateDonation",
+      "endpoint": "dashboard/donations/create",
+      "request_type": "PUT",
+      "query_parameters": [
+        { "type": "int", "name": "id" }
+      ],
+      "body": {
+        "id": "int",
+        "donner":"String",
+        "quantity":"int",
+        "description":"String",
+        "expired_at":"String"
+      },
+      "response_model": {
+        "name": "UpdateDonationModel",
+        "fields": [{ "name": "message", "type": "String" }]
+      }
+    },
+         {
+      "name": "deleteDonation",
+      "endpoint": "dashboard/donations/delete",
+      "request_type": "DELETE",
+      "query_parameters": [
+        { "type": "int", "name": "id" }
+      ],
+      "response_model": {
+        "name": "DeleteDonationModel",
+        "fields": [{ "name": "message", "type": "String" }]
+      }
+    }
+  ]
+}

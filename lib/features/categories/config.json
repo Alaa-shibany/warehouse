@@ -1,0 +1,47 @@
+{
+  "feature_name": "Categories",
+  "apis": [
+    {
+      "name": "getCategories",
+      "endpoint": "dashboard/categories/all",
+      "request_type": "GET",
+      "pagination": false,
+      "query_parameters": [
+        { "type": "String", "name": "name" }
+      ],
+      "list_response_model": [
+        { "name": "CategoryModel", "fields": [
+          { "name": "id", "type": "int" },
+          { "name": "name", "type": "String" }          
+          ] }
+      ]
+    },
+    {
+      "name": "createCategory",
+      "endpoint": "dashboard/categories/create",
+      "request_type": "POST",
+      "body": {
+        "name": "String"
+      },
+      "response_model": {
+        "name": "CreateCategoryResponse",
+        "fields": [{ "name": "data", "type": "CategoryModel" }]
+      }
+    },
+    {
+      "name": "updateCategory",
+      "endpoint": "dashboard/categories/update",
+      "request_type": "PUT",
+      "query_parameters":[
+        { "type": "int", "name": "id" }
+      ],
+      "body": {
+        "name": "String"
+      },
+      "response_model": {
+        "name": "UpdateCategoryResponse",
+        "fields": [{ "name": "data", "type": "CategoryModel" }]
+      }
+    }
+  ]
+}
