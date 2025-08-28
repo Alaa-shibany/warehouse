@@ -37,7 +37,7 @@ class _LoginFormState extends State<LoginForm> {
               backgroundColor: Colors.red,
             ),
           );
-          context.go(AppRoutes.categories);
+          // context.go(AppRoutes.categories);
         }
       },
       child: Center(

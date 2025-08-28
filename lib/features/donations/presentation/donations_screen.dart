@@ -6,7 +6,9 @@ import 'package:warehouse/features/donations/cubits/get_donations_cubit/get_dona
 import 'package:warehouse/features/donations/models/donation_model.dart';
 import 'package:warehouse/features/donations/presentation/components/donation_list_item.dart';
 import 'package:warehouse/features/donations/presentation/components/donations_filter_panel.dart';
+import 'package:warehouse/features/donations/presentation/components/manage_donation_dialog.dart';
 import 'package:warehouse/l10n/app_localizations.dart';
+import 'package:warehouse/shared/dialogs/delete_dailogs.dart';
 
 class DonationsScreen extends StatefulWidget {
   const DonationsScreen({super.key});
@@ -58,7 +60,7 @@ class _DonationsScreenState extends State<DonationsScreen> {
                 const SizedBox(width: 12),
                 FilledButton.icon(
                   onPressed: () {
-                    // showManageCourseDialog(context, coursesCubit);
+                    showManageDonationDialog(context, donationsCubit);
                   },
                   icon: const Icon(Icons.add),
                   label: Text(translator.add_new),
@@ -107,8 +109,20 @@ class _DonationsScreenState extends State<DonationsScreen> {
                           itemBuilder: (context, item, index) =>
                               DonationListItem(
                                 donationItem: item,
-                                onEdit: () {},
-                                onDelete: () {},
+                                onEdit: () {
+                                  showManageDonationDialog(
+                                    context,
+                                    donationsCubit,
+                                    donation: item,
+                                  );
+                                },
+                                onDelete: () {
+                                  showDeleteConfirmationDialog(
+                                    context,
+                                    item.subjectName,
+                                    () {},
+                                  );
+                                },
                               ),
                         ),
                       ),

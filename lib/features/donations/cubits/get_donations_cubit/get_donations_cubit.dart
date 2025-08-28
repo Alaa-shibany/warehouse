@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:warehouse/core/model/pagination_model.dart';
 import 'package:warehouse/core/services/status.dart';
 import 'package:warehouse/core/services/failure_service/failure.dart';
+import 'package:warehouse/features/categories/models/category_model.dart';
 import 'package:warehouse/features/donations/models/sector_mode.dart';
 
 import '../../repo/donations_repository.dart';
@@ -80,8 +81,10 @@ class GetDonationsCubit extends Cubit<GetDonationsState> {
           id: 1,
           donner: 'Alaa sh',
           subjectName: 'Kababb',
-          expireAt: "10-10-2030",
-          createdAt: "10-10-2010",
+          expireAt: "2025-10-10",
+          createdAt: "2025-10-10",
+          category: CategoryModel(id: 1, name: 'Category'),
+
           quantity: 100,
           description: "The best kababb ever",
           sector: SectorMode(id: 1, name: 'WarehouseA-SectorC'),
@@ -90,8 +93,9 @@ class GetDonationsCubit extends Cubit<GetDonationsState> {
           id: 1,
           donner: 'Alaa sh',
           subjectName: 'Kababb',
-          expireAt: "10-10-2030",
-          createdAt: "10-10-2010",
+          expireAt: "2025-10-10",
+          category: CategoryModel(id: 1, name: 'Category'),
+          createdAt: "2025-10-10",
           quantity: 100,
           description: "The best kababb ever",
           sector: SectorMode(id: 1, name: 'WarehouseA-SectorC'),
@@ -100,8 +104,10 @@ class GetDonationsCubit extends Cubit<GetDonationsState> {
           id: 1,
           donner: 'Alaa sh',
           subjectName: 'Kababb',
-          expireAt: "10-10-2030",
-          createdAt: "10-10-2010",
+          expireAt: "2025-10-10",
+          category: CategoryModel(id: 1, name: 'Category'),
+
+          createdAt: "2025-10-10",
           quantity: 100,
           description: "The best kababb ever",
           sector: SectorMode(id: 1, name: 'WarehouseA-SectorC'),
@@ -109,9 +115,11 @@ class GetDonationsCubit extends Cubit<GetDonationsState> {
         DonationModel(
           id: 1,
           donner: 'Alaa sh',
+          category: CategoryModel(id: 1, name: 'Category'),
+
           subjectName: 'Kababb',
-          expireAt: "10-10-2030",
-          createdAt: "10-10-2010",
+          expireAt: "2025-10-10",
+          createdAt: "2025-10-10",
           quantity: 100,
           description: "The best kababb ever",
           sector: SectorMode(id: 1, name: 'WarehouseA-SectorC'),

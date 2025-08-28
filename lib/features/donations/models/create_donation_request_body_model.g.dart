@@ -9,7 +9,7 @@ part of 'create_donation_request_body_model.dart';
 _CreateDonationRequestBodyModel _$CreateDonationRequestBodyModelFromJson(
   Map<String, dynamic> json,
 ) => _CreateDonationRequestBodyModel(
-  id: (json['id'] as num).toInt(),
+  name: json['name'] as String,
   donner: json['donner'] as String,
   quantity: (json['quantity'] as num).toInt(),
   description: json['description'] as String,
@@ -19,7 +19,7 @@ _CreateDonationRequestBodyModel _$CreateDonationRequestBodyModelFromJson(
 Map<String, dynamic> _$CreateDonationRequestBodyModelToJson(
   _CreateDonationRequestBodyModel instance,
 ) => <String, dynamic>{
-  'id': instance.id,
+  'name': instance.name,
   'donner': instance.donner,
   'quantity': instance.quantity,
   'description': instance.description,

@@ -1,3 +1,4 @@
+import 'package:warehouse/features/categories/cubits/delete_category_cubit/delete_category_cubit.dart';
 import 'package:warehouse/features/donations/repo/donations_repository.dart';
 
 import 'package:warehouse/features/donations/cubits/delete_donation_cubit/delete_donation_cubit.dart';
@@ -75,6 +76,7 @@ Future<void> setupServiceLocator() async {
   sl.registerFactory(() => GetCategoriesCubit(sl()));
   sl.registerFactory(() => CreateCategoryCubit(sl()));
   sl.registerFactory(() => UpdateCategoryCubit(sl()));
+  sl.registerFactory(() => DeleteCategoryCubit(sl()));
   sl.registerLazySingleton(() => CategoriesRepository(sl()));
   sl.registerFactory(() => GetDonationsCubit(sl()));
   sl.registerFactory(() => CreateDonationCubit(sl()));

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DonationModel {
 
- int get id; String get donner;@JsonKey(name: 'subject_name') String get subjectName;@JsonKey(name: 'expire_at') String get expireAt;@JsonKey(name: 'created_at') String get createdAt; int get quantity; String get description; SectorMode? get sector;
+ int get id; String get donner;@JsonKey(name: 'subject_name') String get subjectName;@JsonKey(name: 'expire_at') String get expireAt;@JsonKey(name: 'created_at') String get createdAt; int get quantity; String get description; SectorMode? get sector; CategoryModel get category;
 /// Create a copy of DonationModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $DonationModelCopyWith<DonationModel> get copyWith => _$DonationModelCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DonationModel&&(identical(other.id, id) || other.id == id)&&(identical(other.donner, donner) || other.donner == donner)&&(identical(other.subjectName, subjectName) || other.subjectName == subjectName)&&(identical(other.expireAt, expireAt) || other.expireAt == expireAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.quantity, quantity) || other.quantity == quantity)&&(identical(other.description, description) || other.description == description)&&(identical(other.sector, sector) || other.sector == sector));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DonationModel&&(identical(other.id, id) || other.id == id)&&(identical(other.donner, donner) || other.donner == donner)&&(identical(other.subjectName, subjectName) || other.subjectName == subjectName)&&(identical(other.expireAt, expireAt) || other.expireAt == expireAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.quantity, quantity) || other.quantity == quantity)&&(identical(other.description, description) || other.description == description)&&(identical(other.sector, sector) || other.sector == sector)&&(identical(other.category, category) || other.category == category));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,donner,subjectName,expireAt,createdAt,quantity,description,sector);
+int get hashCode => Object.hash(runtimeType,id,donner,subjectName,expireAt,createdAt,quantity,description,sector,category);
 
 @override
 String toString() {
-  return 'DonationModel(id: $id, donner: $donner, subjectName: $subjectName, expireAt: $expireAt, createdAt: $createdAt, quantity: $quantity, description: $description, sector: $sector)';
+  return 'DonationModel(id: $id, donner: $donner, subjectName: $subjectName, expireAt: $expireAt, createdAt: $createdAt, quantity: $quantity, description: $description, sector: $sector, category: $category)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $DonationModelCopyWith<$Res>  {
   factory $DonationModelCopyWith(DonationModel value, $Res Function(DonationModel) _then) = _$DonationModelCopyWithImpl;
 @useResult
 $Res call({
- int id, String donner,@JsonKey(name: 'subject_name') String subjectName,@JsonKey(name: 'expire_at') String expireAt,@JsonKey(name: 'created_at') String createdAt, int quantity, String description, SectorMode? sector
+ int id, String donner,@JsonKey(name: 'subject_name') String subjectName,@JsonKey(name: 'expire_at') String expireAt,@JsonKey(name: 'created_at') String createdAt, int quantity, String description, SectorMode? sector, CategoryModel category
 });
 
 
-$SectorModeCopyWith<$Res>? get sector;
+$SectorModeCopyWith<$Res>? get sector;$CategoryModelCopyWith<$Res> get category;
 
 }
 /// @nodoc
@@ -65,7 +65,7 @@ class _$DonationModelCopyWithImpl<$Res>
 
 /// Create a copy of DonationModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? donner = null,Object? subjectName = null,Object? expireAt = null,Object? createdAt = null,Object? quantity = null,Object? description = null,Object? sector = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? donner = null,Object? subjectName = null,Object? expireAt = null,Object? createdAt = null,Object? quantity = null,Object? description = null,Object? sector = freezed,Object? category = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,donner: null == donner ? _self.donner : donner // ignore: cast_nullable_to_non_nullable
@@ -75,7 +75,8 @@ as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: 
 as String,quantity: null == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
 as int,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,sector: freezed == sector ? _self.sector : sector // ignore: cast_nullable_to_non_nullable
-as SectorMode?,
+as SectorMode?,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as CategoryModel,
   ));
 }
 /// Create a copy of DonationModel
@@ -89,6 +90,15 @@ $SectorModeCopyWith<$Res>? get sector {
 
   return $SectorModeCopyWith<$Res>(_self.sector!, (value) {
     return _then(_self.copyWith(sector: value));
+  });
+}/// Create a copy of DonationModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CategoryModelCopyWith<$Res> get category {
+  
+  return $CategoryModelCopyWith<$Res>(_self.category, (value) {
+    return _then(_self.copyWith(category: value));
   });
 }
 }
@@ -172,10 +182,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String donner, @JsonKey(name: 'subject_name')  String subjectName, @JsonKey(name: 'expire_at')  String expireAt, @JsonKey(name: 'created_at')  String createdAt,  int quantity,  String description,  SectorMode? sector)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String donner, @JsonKey(name: 'subject_name')  String subjectName, @JsonKey(name: 'expire_at')  String expireAt, @JsonKey(name: 'created_at')  String createdAt,  int quantity,  String description,  SectorMode? sector,  CategoryModel category)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DonationModel() when $default != null:
-return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.createdAt,_that.quantity,_that.description,_that.sector);case _:
+return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.createdAt,_that.quantity,_that.description,_that.sector,_that.category);case _:
   return orElse();
 
 }
@@ -193,10 +203,10 @@ return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.cre
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String donner, @JsonKey(name: 'subject_name')  String subjectName, @JsonKey(name: 'expire_at')  String expireAt, @JsonKey(name: 'created_at')  String createdAt,  int quantity,  String description,  SectorMode? sector)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String donner, @JsonKey(name: 'subject_name')  String subjectName, @JsonKey(name: 'expire_at')  String expireAt, @JsonKey(name: 'created_at')  String createdAt,  int quantity,  String description,  SectorMode? sector,  CategoryModel category)  $default,) {final _that = this;
 switch (_that) {
 case _DonationModel():
-return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.createdAt,_that.quantity,_that.description,_that.sector);case _:
+return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.createdAt,_that.quantity,_that.description,_that.sector,_that.category);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -213,10 +223,10 @@ return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.cre
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String donner, @JsonKey(name: 'subject_name')  String subjectName, @JsonKey(name: 'expire_at')  String expireAt, @JsonKey(name: 'created_at')  String createdAt,  int quantity,  String description,  SectorMode? sector)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String donner, @JsonKey(name: 'subject_name')  String subjectName, @JsonKey(name: 'expire_at')  String expireAt, @JsonKey(name: 'created_at')  String createdAt,  int quantity,  String description,  SectorMode? sector,  CategoryModel category)?  $default,) {final _that = this;
 switch (_that) {
 case _DonationModel() when $default != null:
-return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.createdAt,_that.quantity,_that.description,_that.sector);case _:
+return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.createdAt,_that.quantity,_that.description,_that.sector,_that.category);case _:
   return null;
 
 }
@@ -228,7 +238,7 @@ return $default(_that.id,_that.donner,_that.subjectName,_that.expireAt,_that.cre
 @JsonSerializable()
 
 class _DonationModel implements DonationModel {
-  const _DonationModel({required this.id, required this.donner, @JsonKey(name: 'subject_name') required this.subjectName, @JsonKey(name: 'expire_at') required this.expireAt, @JsonKey(name: 'created_at') required this.createdAt, required this.quantity, required this.description, required this.sector});
+  const _DonationModel({required this.id, required this.donner, @JsonKey(name: 'subject_name') required this.subjectName, @JsonKey(name: 'expire_at') required this.expireAt, @JsonKey(name: 'created_at') required this.createdAt, required this.quantity, required this.description, required this.sector, required this.category});
   factory _DonationModel.fromJson(Map<String, dynamic> json) => _$DonationModelFromJson(json);
 
 @override final  int id;
@@ -239,6 +249,7 @@ class _DonationModel implements DonationModel {
 @override final  int quantity;
 @override final  String description;
 @override final  SectorMode? sector;
+@override final  CategoryModel category;
 
 /// Create a copy of DonationModel
 /// with the given fields replaced by the non-null parameter values.
@@ -253,16 +264,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DonationModel&&(identical(other.id, id) || other.id == id)&&(identical(other.donner, donner) || other.donner == donner)&&(identical(other.subjectName, subjectName) || other.subjectName == subjectName)&&(identical(other.expireAt, expireAt) || other.expireAt == expireAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.quantity, quantity) || other.quantity == quantity)&&(identical(other.description, description) || other.description == description)&&(identical(other.sector, sector) || other.sector == sector));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DonationModel&&(identical(other.id, id) || other.id == id)&&(identical(other.donner, donner) || other.donner == donner)&&(identical(other.subjectName, subjectName) || other.subjectName == subjectName)&&(identical(other.expireAt, expireAt) || other.expireAt == expireAt)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.quantity, quantity) || other.quantity == quantity)&&(identical(other.description, description) || other.description == description)&&(identical(other.sector, sector) || other.sector == sector)&&(identical(other.category, category) || other.category == category));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,donner,subjectName,expireAt,createdAt,quantity,description,sector);
+int get hashCode => Object.hash(runtimeType,id,donner,subjectName,expireAt,createdAt,quantity,description,sector,category);
 
 @override
 String toString() {
-  return 'DonationModel(id: $id, donner: $donner, subjectName: $subjectName, expireAt: $expireAt, createdAt: $createdAt, quantity: $quantity, description: $description, sector: $sector)';
+  return 'DonationModel(id: $id, donner: $donner, subjectName: $subjectName, expireAt: $expireAt, createdAt: $createdAt, quantity: $quantity, description: $description, sector: $sector, category: $category)';
 }
 
 
@@ -273,11 +284,11 @@ abstract mixin class _$DonationModelCopyWith<$Res> implements $DonationModelCopy
   factory _$DonationModelCopyWith(_DonationModel value, $Res Function(_DonationModel) _then) = __$DonationModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String donner,@JsonKey(name: 'subject_name') String subjectName,@JsonKey(name: 'expire_at') String expireAt,@JsonKey(name: 'created_at') String createdAt, int quantity, String description, SectorMode? sector
+ int id, String donner,@JsonKey(name: 'subject_name') String subjectName,@JsonKey(name: 'expire_at') String expireAt,@JsonKey(name: 'created_at') String createdAt, int quantity, String description, SectorMode? sector, CategoryModel category
 });
 
 
-@override $SectorModeCopyWith<$Res>? get sector;
+@override $SectorModeCopyWith<$Res>? get sector;@override $CategoryModelCopyWith<$Res> get category;
 
 }
 /// @nodoc
@@ -290,7 +301,7 @@ class __$DonationModelCopyWithImpl<$Res>
 
 /// Create a copy of DonationModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? donner = null,Object? subjectName = null,Object? expireAt = null,Object? createdAt = null,Object? quantity = null,Object? description = null,Object? sector = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? donner = null,Object? subjectName = null,Object? expireAt = null,Object? createdAt = null,Object? quantity = null,Object? description = null,Object? sector = freezed,Object? category = null,}) {
   return _then(_DonationModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,donner: null == donner ? _self.donner : donner // ignore: cast_nullable_to_non_nullable
@@ -300,7 +311,8 @@ as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: 
 as String,quantity: null == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
 as int,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,sector: freezed == sector ? _self.sector : sector // ignore: cast_nullable_to_non_nullable
-as SectorMode?,
+as SectorMode?,category: null == category ? _self.category : category // ignore: cast_nullable_to_non_nullable
+as CategoryModel,
   ));
 }
 
@@ -315,6 +327,15 @@ $SectorModeCopyWith<$Res>? get sector {
 
   return $SectorModeCopyWith<$Res>(_self.sector!, (value) {
     return _then(_self.copyWith(sector: value));
+  });
+}/// Create a copy of DonationModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$CategoryModelCopyWith<$Res> get category {
+  
+  return $CategoryModelCopyWith<$Res>(_self.category, (value) {
+    return _then(_self.copyWith(category: value));
   });
 }
 }

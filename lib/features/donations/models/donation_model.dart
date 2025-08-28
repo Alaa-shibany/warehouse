@@ -1,5 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
+import 'package:warehouse/features/categories/models/category_model.dart';
+
 import 'sector_mode.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -17,6 +19,7 @@ abstract class DonationModel with _$DonationModel {
     required int quantity,
     required String description,
     required SectorMode? sector,
+    required CategoryModel category,
   }) = _DonationModel;
 
   factory DonationModel.fromJson(Map<String, dynamic> json) =>

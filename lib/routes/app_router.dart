@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:warehouse/core/services/service_locator.dart';
+import 'package:warehouse/features/categories/cubits/delete_category_cubit/delete_category_cubit.dart';
 import 'package:warehouse/features/categories/cubits/get_categories_cubit/get_categories_cubit.dart';
 import 'package:warehouse/features/donations/cubits/get_donations_cubit/get_donations_cubit.dart';
 import 'package:warehouse/features/login/cubits/login_cubit/login_cubit.dart';
@@ -51,8 +52,14 @@ class AppRouter {
           GoRoute(
             name: 'categories',
             path: AppRoutes.categories,
-            builder: (context, state) => BlocProvider(
-              create: (context) => sl<GetCategoriesCubit>()..getCategories(),
+            builder: (context, state) => MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => sl<DeleteCategoryCubit>()),
+                BlocProvider(
+                  create: (context) =>
+                      sl<GetCategoriesCubit>()..getCategories(),
+                ),
+              ],
               child: const CategoriesScreen(),
             ),
           ),

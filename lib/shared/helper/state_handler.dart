@@ -1,6 +1,7 @@
 // lib/common/utils/state_handler.dart
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../core/services/failure_service/failure.dart';
 import '../../core/services/status.dart';
 import '../dialogs/loading_dialog.dart';
@@ -18,8 +19,8 @@ void handleSubmissionState({
   } else if (state == SubmissionStatus.error) {
     failure.handle(context, onRetry: () {});
   } else if (state == SubmissionStatus.success) {
-    if (isShimmer) {
-      Navigator.of(context).pop();
+    if (!isShimmer) {
+      context.pop();
     }
     onSuccess();
   }

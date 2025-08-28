@@ -18,6 +18,9 @@ _DonationModel _$DonationModelFromJson(Map<String, dynamic> json) =>
       sector: json['sector'] == null
           ? null
           : SectorMode.fromJson(json['sector'] as Map<String, dynamic>),
+      category: CategoryModel.fromJson(
+        json['category'] as Map<String, dynamic>,
+      ),
     );
 
 Map<String, dynamic> _$DonationModelToJson(_DonationModel instance) =>
@@ -30,4 +33,5 @@ Map<String, dynamic> _$DonationModelToJson(_DonationModel instance) =>
       'quantity': instance.quantity,
       'description': instance.description,
       'sector': instance.sector,
+      'category': instance.category,
     };
