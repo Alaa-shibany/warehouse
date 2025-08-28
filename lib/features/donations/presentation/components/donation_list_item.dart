@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:warehouse/config/constants/application_images.dart';
 import 'package:warehouse/features/donations/models/donation_model.dart';
 import 'package:warehouse/l10n/app_localizations.dart';
@@ -72,22 +73,15 @@ class _DonationListItemState extends State<DonationListItem> {
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 4),
-                      Text(
-                        '${translator.expire_date}: ${widget.donationItem.expireAt}',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey.shade600,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      if (widget.donationItem.sector != null)
+                      if (widget.donationItem.expireAt != null)
                         Text(
-                          '${translator.stored_in}: ${widget.donationItem.sector!.name}',
+                          '${translator.expire_date}: ${DateFormat('y-MM-dd').format(DateTime.parse(widget.donationItem.expireAt!))}',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey.shade600,
                           ),
                         ),
+                      const SizedBox(height: 4),
                     ],
                   ),
                 ),

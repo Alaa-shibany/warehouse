@@ -25,12 +25,12 @@ $DeleteCategoryStateCopyWith<DeleteCategoryState> get copyWith => _$DeleteCatego
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteCategoryState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.data, data)&&(identical(other.failure, failure) || other.failure == failure));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeleteCategoryState&&(identical(other.status, status) || other.status == status)&&(identical(other.data, data) || other.data == data)&&(identical(other.failure, failure) || other.failure == failure));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(data),failure);
+int get hashCode => Object.hash(runtimeType,status,data,failure);
 
 @override
 String toString() {
@@ -49,7 +49,7 @@ $Res call({
 });
 
 
-
+$DeleteCategoryResponseCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -70,7 +70,19 @@ as DeleteCategoryResponse?,failure: freezed == failure ? _self.failure : failure
 as Failure?,
   ));
 }
+/// Create a copy of DeleteCategoryState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DeleteCategoryResponseCopyWith<$Res>? get data {
+    if (_self.data == null) {
+    return null;
+  }
 
+  return $DeleteCategoryResponseCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 
@@ -225,12 +237,12 @@ _$CreateTeacherStateCopyWith<_CreateTeacherState> get copyWith => __$CreateTeach
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateTeacherState&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.data, data)&&(identical(other.failure, failure) || other.failure == failure));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CreateTeacherState&&(identical(other.status, status) || other.status == status)&&(identical(other.data, data) || other.data == data)&&(identical(other.failure, failure) || other.failure == failure));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(data),failure);
+int get hashCode => Object.hash(runtimeType,status,data,failure);
 
 @override
 String toString() {
@@ -249,7 +261,7 @@ $Res call({
 });
 
 
-
+@override $DeleteCategoryResponseCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -271,7 +283,19 @@ as Failure?,
   ));
 }
 
+/// Create a copy of DeleteCategoryState
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$DeleteCategoryResponseCopyWith<$Res>? get data {
+    if (_self.data == null) {
+    return null;
+  }
 
+  return $DeleteCategoryResponseCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
+  });
+}
 }
 
 // dart format on

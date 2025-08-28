@@ -10,7 +10,7 @@ class EndPoints {
       'dashboard/categories/update';
   static const String dashboard_categories_delete =
       'dashboard/categories/delete';
-  static const String dashboard_categories_index = 'dashboard/categories/index';
-  static const String dashboard_donations_create = 'dashboard/donations/create';
+  static const String dashboard_categories_index = 'dashboard/items/index';
+  static const String dashboard_donations_create = 'dashboard/items/create';
   static const String dashboard_donations_delete = 'dashboard/donations/delete';
 }

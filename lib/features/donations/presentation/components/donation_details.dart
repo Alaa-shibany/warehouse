@@ -15,12 +15,19 @@ class DonationDetails extends StatelessWidget {
     required this.quantityController,
     required this.descriptionController,
     required this.expireAtNotifier,
+    required this.unitController,
+    required this.selectedSubject,
+    required this.controller,
   });
 
   final TextEditingController donnerController;
   final TextEditingController subjectNameController;
   final TextEditingController quantityController;
   final TextEditingController descriptionController;
+  final TextEditingController unitController;
+  final ValueNotifier<CategoryModel?> selectedSubject;
+  final SearchController controller;
+
   final ValueNotifier<DateTime?> expireAtNotifier;
 
   @override
@@ -64,14 +71,23 @@ class DonationDetails extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: _buildDatePickerField(
-                context,
-                'Expiry Date',
-                expireAtNotifier,
+              child: TextFormField(
+                controller: unitController,
+                decoration: buildInputDecoration(
+                  label: 'Unit',
+                  icon: Icons.add_rounded,
+                ),
+                // keyboardType: TextInputType.number,
+                // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                validator: (v) => (v == null || v.isEmpty) ? 'Required' : null,
               ),
             ),
           ],
         ),
+        const SizedBox(height: 16),
+        _buildDatePickerField(context, 'Expiry Date', expireAtNotifier),
+        const SizedBox(height: 16),
+        _buildCategorySelector(selectedSubject, controller),
         const SizedBox(height: 16),
         TextFormField(
           controller: descriptionController,
@@ -126,7 +142,7 @@ class DonationDetails extends StatelessWidget {
     );
   }
 
-  Widget _buildSubjectSelector(
+  Widget _buildCategorySelector(
     ValueNotifier<CategoryModel?> selectedSubject,
     SearchController controller,
   ) {

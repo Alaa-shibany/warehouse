@@ -9,29 +9,25 @@ part of 'donation_model.dart';
 _DonationModel _$DonationModelFromJson(Map<String, dynamic> json) =>
     _DonationModel(
       id: (json['id'] as num).toInt(),
-      donner: json['donner'] as String,
-      subjectName: json['subject_name'] as String,
-      expireAt: json['expire_at'] as String,
-      createdAt: json['created_at'] as String,
-      quantity: (json['quantity'] as num).toInt(),
+      donner: json['donor'] as String?,
+      subjectName: json['name'] as String,
+      expireAt: json['expiry_date'] as String?,
+      createdAt: json['addition_date'] as String,
+      quantity: (json['amount'] as num).toInt(),
       description: json['description'] as String,
-      sector: json['sector'] == null
-          ? null
-          : SectorMode.fromJson(json['sector'] as Map<String, dynamic>),
-      category: CategoryModel.fromJson(
-        json['category'] as Map<String, dynamic>,
-      ),
+      unit: json['unit'] as String,
+      categoryId: (json['category_id'] as num).toInt(),
     );
 
 Map<String, dynamic> _$DonationModelToJson(_DonationModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'donner': instance.donner,
-      'subject_name': instance.subjectName,
-      'expire_at': instance.expireAt,
-      'created_at': instance.createdAt,
-      'quantity': instance.quantity,
+      'donor': instance.donner,
+      'name': instance.subjectName,
+      'expiry_date': instance.expireAt,
+      'addition_date': instance.createdAt,
+      'amount': instance.quantity,
       'description': instance.description,
-      'sector': instance.sector,
-      'category': instance.category,
+      'unit': instance.unit,
+      'category_id': instance.categoryId,
     };

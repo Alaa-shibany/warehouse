@@ -13,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:warehouse/shared/dialogs/loading_dialog.dart';
-import 'package:warehouse/shared/helper/state_handler.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});

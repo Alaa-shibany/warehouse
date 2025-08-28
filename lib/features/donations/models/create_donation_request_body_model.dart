@@ -8,8 +8,10 @@ abstract class CreateDonationRequestBodyModel
     with _$CreateDonationRequestBodyModel {
   const factory CreateDonationRequestBodyModel({
     required String name,
-    required String donner,
-    required int quantity,
+    @JsonKey(name: 'donor') required String donner,
+    @JsonKey(name: 'amount') required int quantity,
+    @JsonKey(name: 'category_id') required int categoryId,
+    required String unit,
     required String description,
     required String expired_at,
   }) = _CreateDonationRequestBodyModel;

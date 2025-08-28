@@ -62,7 +62,7 @@ class DonationsRepository {
         data: body.toJson(),
       );
 
-      final data = CreateDonationModel.fromJson(response.data['data']);
+      final data = CreateDonationModel.fromJson(response.data);
 
       return Right(data);
     } on DioException catch (e) {
@@ -82,7 +82,7 @@ class DonationsRepository {
         data: body.toJson(),
       );
 
-      final data = UpdateDonationModel.fromJson(response.data['data']);
+      final data = UpdateDonationModel.fromJson(response.data);
 
       return Right(data);
     } on DioException catch (e) {

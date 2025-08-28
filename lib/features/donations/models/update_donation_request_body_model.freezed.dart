@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UpdateDonationRequestBodyModel {
 
- int get id; String get donner; int get quantity; String get description; String get expired_at;
+ String get name;@JsonKey(name: 'donor') String get donner;@JsonKey(name: 'amount') int get quantity;@JsonKey(name: 'category_id') int get categoryId; String get unit; String get description; String get expired_at;
 /// Create a copy of UpdateDonationRequestBodyModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UpdateDonationRequestBodyModelCopyWith<UpdateDonationRequestBodyModel> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UpdateDonationRequestBodyModel&&(identical(other.id, id) || other.id == id)&&(identical(other.donner, donner) || other.donner == donner)&&(identical(other.quantity, quantity) || other.quantity == quantity)&&(identical(other.description, description) || other.description == description)&&(identical(other.expired_at, expired_at) || other.expired_at == expired_at));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UpdateDonationRequestBodyModel&&(identical(other.name, name) || other.name == name)&&(identical(other.donner, donner) || other.donner == donner)&&(identical(other.quantity, quantity) || other.quantity == quantity)&&(identical(other.categoryId, categoryId) || other.categoryId == categoryId)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.description, description) || other.description == description)&&(identical(other.expired_at, expired_at) || other.expired_at == expired_at));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,donner,quantity,description,expired_at);
+int get hashCode => Object.hash(runtimeType,name,donner,quantity,categoryId,unit,description,expired_at);
 
 @override
 String toString() {
-  return 'UpdateDonationRequestBodyModel(id: $id, donner: $donner, quantity: $quantity, description: $description, expired_at: $expired_at)';
+  return 'UpdateDonationRequestBodyModel(name: $name, donner: $donner, quantity: $quantity, categoryId: $categoryId, unit: $unit, description: $description, expired_at: $expired_at)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $UpdateDonationRequestBodyModelCopyWith<$Res>  {
   factory $UpdateDonationRequestBodyModelCopyWith(UpdateDonationRequestBodyModel value, $Res Function(UpdateDonationRequestBodyModel) _then) = _$UpdateDonationRequestBodyModelCopyWithImpl;
 @useResult
 $Res call({
- int id, String donner, int quantity, String description, String expired_at
+ String name,@JsonKey(name: 'donor') String donner,@JsonKey(name: 'amount') int quantity,@JsonKey(name: 'category_id') int categoryId, String unit, String description, String expired_at
 });
 
 
@@ -65,12 +65,14 @@ class _$UpdateDonationRequestBodyModelCopyWithImpl<$Res>
 
 /// Create a copy of UpdateDonationRequestBodyModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? donner = null,Object? quantity = null,Object? description = null,Object? expired_at = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? donner = null,Object? quantity = null,Object? categoryId = null,Object? unit = null,Object? description = null,Object? expired_at = null,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,donner: null == donner ? _self.donner : donner // ignore: cast_nullable_to_non_nullable
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,donner: null == donner ? _self.donner : donner // ignore: cast_nullable_to_non_nullable
 as String,quantity: null == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
-as int,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as int,categoryId: null == categoryId ? _self.categoryId : categoryId // ignore: cast_nullable_to_non_nullable
+as int,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,expired_at: null == expired_at ? _self.expired_at : expired_at // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -157,10 +159,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String donner,  int quantity,  String description,  String expired_at)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'donor')  String donner, @JsonKey(name: 'amount')  int quantity, @JsonKey(name: 'category_id')  int categoryId,  String unit,  String description,  String expired_at)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UpdateDonationRequestBodyModel() when $default != null:
-return $default(_that.id,_that.donner,_that.quantity,_that.description,_that.expired_at);case _:
+return $default(_that.name,_that.donner,_that.quantity,_that.categoryId,_that.unit,_that.description,_that.expired_at);case _:
   return orElse();
 
 }
@@ -178,10 +180,10 @@ return $default(_that.id,_that.donner,_that.quantity,_that.description,_that.exp
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String donner,  int quantity,  String description,  String expired_at)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'donor')  String donner, @JsonKey(name: 'amount')  int quantity, @JsonKey(name: 'category_id')  int categoryId,  String unit,  String description,  String expired_at)  $default,) {final _that = this;
 switch (_that) {
 case _UpdateDonationRequestBodyModel():
-return $default(_that.id,_that.donner,_that.quantity,_that.description,_that.expired_at);case _:
+return $default(_that.name,_that.donner,_that.quantity,_that.categoryId,_that.unit,_that.description,_that.expired_at);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +200,10 @@ return $default(_that.id,_that.donner,_that.quantity,_that.description,_that.exp
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String donner,  int quantity,  String description,  String expired_at)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(name: 'donor')  String donner, @JsonKey(name: 'amount')  int quantity, @JsonKey(name: 'category_id')  int categoryId,  String unit,  String description,  String expired_at)?  $default,) {final _that = this;
 switch (_that) {
 case _UpdateDonationRequestBodyModel() when $default != null:
-return $default(_that.id,_that.donner,_that.quantity,_that.description,_that.expired_at);case _:
+return $default(_that.name,_that.donner,_that.quantity,_that.categoryId,_that.unit,_that.description,_that.expired_at);case _:
   return null;
 
 }
@@ -213,12 +215,14 @@ return $default(_that.id,_that.donner,_that.quantity,_that.description,_that.exp
 @JsonSerializable()
 
 class _UpdateDonationRequestBodyModel implements UpdateDonationRequestBodyModel {
-  const _UpdateDonationRequestBodyModel({required this.id, required this.donner, required this.quantity, required this.description, required this.expired_at});
+  const _UpdateDonationRequestBodyModel({required this.name, @JsonKey(name: 'donor') required this.donner, @JsonKey(name: 'amount') required this.quantity, @JsonKey(name: 'category_id') required this.categoryId, required this.unit, required this.description, required this.expired_at});
   factory _UpdateDonationRequestBodyModel.fromJson(Map<String, dynamic> json) => _$UpdateDonationRequestBodyModelFromJson(json);
 
-@override final  int id;
-@override final  String donner;
-@override final  int quantity;
+@override final  String name;
+@override@JsonKey(name: 'donor') final  String donner;
+@override@JsonKey(name: 'amount') final  int quantity;
+@override@JsonKey(name: 'category_id') final  int categoryId;
+@override final  String unit;
 @override final  String description;
 @override final  String expired_at;
 
@@ -235,16 +239,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdateDonationRequestBodyModel&&(identical(other.id, id) || other.id == id)&&(identical(other.donner, donner) || other.donner == donner)&&(identical(other.quantity, quantity) || other.quantity == quantity)&&(identical(other.description, description) || other.description == description)&&(identical(other.expired_at, expired_at) || other.expired_at == expired_at));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdateDonationRequestBodyModel&&(identical(other.name, name) || other.name == name)&&(identical(other.donner, donner) || other.donner == donner)&&(identical(other.quantity, quantity) || other.quantity == quantity)&&(identical(other.categoryId, categoryId) || other.categoryId == categoryId)&&(identical(other.unit, unit) || other.unit == unit)&&(identical(other.description, description) || other.description == description)&&(identical(other.expired_at, expired_at) || other.expired_at == expired_at));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,donner,quantity,description,expired_at);
+int get hashCode => Object.hash(runtimeType,name,donner,quantity,categoryId,unit,description,expired_at);
 
 @override
 String toString() {
-  return 'UpdateDonationRequestBodyModel(id: $id, donner: $donner, quantity: $quantity, description: $description, expired_at: $expired_at)';
+  return 'UpdateDonationRequestBodyModel(name: $name, donner: $donner, quantity: $quantity, categoryId: $categoryId, unit: $unit, description: $description, expired_at: $expired_at)';
 }
 
 
@@ -255,7 +259,7 @@ abstract mixin class _$UpdateDonationRequestBodyModelCopyWith<$Res> implements $
   factory _$UpdateDonationRequestBodyModelCopyWith(_UpdateDonationRequestBodyModel value, $Res Function(_UpdateDonationRequestBodyModel) _then) = __$UpdateDonationRequestBodyModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String donner, int quantity, String description, String expired_at
+ String name,@JsonKey(name: 'donor') String donner,@JsonKey(name: 'amount') int quantity,@JsonKey(name: 'category_id') int categoryId, String unit, String description, String expired_at
 });
 
 
@@ -272,12 +276,14 @@ class __$UpdateDonationRequestBodyModelCopyWithImpl<$Res>
 
 /// Create a copy of UpdateDonationRequestBodyModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? donner = null,Object? quantity = null,Object? description = null,Object? expired_at = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? donner = null,Object? quantity = null,Object? categoryId = null,Object? unit = null,Object? description = null,Object? expired_at = null,}) {
   return _then(_UpdateDonationRequestBodyModel(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,donner: null == donner ? _self.donner : donner // ignore: cast_nullable_to_non_nullable
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,donner: null == donner ? _self.donner : donner // ignore: cast_nullable_to_non_nullable
 as String,quantity: null == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
-as int,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as int,categoryId: null == categoryId ? _self.categoryId : categoryId // ignore: cast_nullable_to_non_nullable
+as int,unit: null == unit ? _self.unit : unit // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,expired_at: null == expired_at ? _self.expired_at : expired_at // ignore: cast_nullable_to_non_nullable
 as String,
   ));
