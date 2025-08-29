@@ -5,6 +5,7 @@ import 'package:warehouse/core/services/end_points.dart';
 import 'package:warehouse/core/services/failure_service/failure.dart';
 import 'package:warehouse/core/services/failure_services.dart';
 import 'package:warehouse/features/categories/models/delete_category_response.dart';
+import 'package:warehouse/features/categories/models/single_donation_model.dart';
 import '../models/category_model.dart';
 import '../models/create_category_response.dart';
 import '../models/create_category_request_body_model.dart';
@@ -83,6 +84,24 @@ class CategoriesRepository {
         data: {},
       );
       final data = DeleteCategoryResponse.fromJson(response.data);
+      return Right(data);
+    } on DioException catch (e) {
+      return Left(FailureFactory.fromDioException(e));
+    } catch (e) {
+      return Left(FailureFactory(e.toString()));
+    }
+  }
+
+  Future<Either<Failure, SingleDonationModel>> showDonation({
+    required int id,
+  }) async {
+    try {
+      final response = await _apiService.get(
+        "${EndPoints.dashboard_item_show}/$id",
+      );
+
+      final data = SingleDonationModel.fromJson(response.data['data']);
+
       return Right(data);
     } on DioException catch (e) {
       return Left(FailureFactory.fromDioException(e));

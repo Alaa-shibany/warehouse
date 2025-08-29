@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:warehouse/features/categories/models/category_model.dart';
 
 part 'donation_model.freezed.dart';
 part 'donation_model.g.dart';
@@ -16,7 +17,7 @@ abstract class DonationModel with _$DonationModel {
     @JsonKey(name: 'amount') required int quantity,
     required String description,
     required String unit,
-    @JsonKey(name: 'category_id') required int categoryId,
+    @JsonKey(name: 'category') required CategoryModel category,
   }) = _DonationModel;
 
   factory DonationModel.fromJson(Map<String, dynamic> json) =>

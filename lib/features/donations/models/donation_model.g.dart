@@ -16,7 +16,9 @@ _DonationModel _$DonationModelFromJson(Map<String, dynamic> json) =>
       quantity: (json['amount'] as num).toInt(),
       description: json['description'] as String,
       unit: json['unit'] as String,
-      categoryId: (json['category_id'] as num).toInt(),
+      category: CategoryModel.fromJson(
+        json['category'] as Map<String, dynamic>,
+      ),
     );
 
 Map<String, dynamic> _$DonationModelToJson(_DonationModel instance) =>
@@ -29,5 +31,5 @@ Map<String, dynamic> _$DonationModelToJson(_DonationModel instance) =>
       'amount': instance.quantity,
       'description': instance.description,
       'unit': instance.unit,
-      'category_id': instance.categoryId,
+      'category': instance.category,
     };

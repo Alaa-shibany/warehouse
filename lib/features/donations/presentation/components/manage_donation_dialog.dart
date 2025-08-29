@@ -26,7 +26,7 @@ void showManageDonationDialog(
   final translator = AppLocalizations.of(context)!;
   final _formKey = GlobalKey<FormState>();
   ValueNotifier<CategoryModel?> _selectedCategory = ValueNotifier(
-    null,
+    isEditing ? donation.category : null,
   ); // == Controllers ==
   final _donnerController = TextEditingController(
     text: isEditing ? donation.donner : '',
@@ -70,7 +70,7 @@ void showManageDonationDialog(
           listener: (context, state) {
             if (state.status == SubmissionStatus.success && isEditing) {
               _selectedCategory.value = state.data!.firstWhere(
-                (element) => element.id == donation.categoryId,
+                (element) => element.id == donation.category.id,
               );
             }
           },

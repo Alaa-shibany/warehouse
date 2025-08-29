@@ -13,4 +13,5 @@ class EndPoints {
   static const String dashboard_categories_index = 'dashboard/items/index';
   static const String dashboard_donations_create = 'dashboard/items/create';
   static const String dashboard_donations_delete = 'dashboard/donations/delete';
+  static const String dashboard_item_show = 'dashboard/items/show';
 }

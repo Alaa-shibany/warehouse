@@ -7,5 +7,6 @@ class AppRoutes {
     static const String login = '/login';
     static const String categories = '/categories';
     static const String donations = '/donations';
+    static const String profile = '/profile';
   //<-- DONT_REMOVE_THIS_LINE_ROUTES -->
 }
