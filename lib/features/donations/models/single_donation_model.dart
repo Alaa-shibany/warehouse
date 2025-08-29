@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'distribution_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -18,5 +20,6 @@ abstract class SingleDonationModel with _$SingleDonationModel {
     required List<DistributionModel> distributions,
   }) = _SingleDonationModel;
 
-  factory SingleDonationModel.fromJson(Map<String, dynamic> json) => _$SingleDonationModelFromJson(json);
+  factory SingleDonationModel.fromJson(Map<String, dynamic> json) =>
+      _$SingleDonationModelFromJson(json);
 }

@@ -1,6 +1,4 @@
-import 'package:warehouse/features/profile/repo/register_requests_repository.dart';
-
-import 'package:warehouse/features/profile/cubits/show_donation_cubit/show_donation_cubit.dart';
+import 'package:warehouse/features/donations/cubits/show_donation_cubit/show_donation_cubit.dart';
 
 import 'package:warehouse/features/categories/cubits/delete_category_cubit/delete_category_cubit.dart';
 import 'package:warehouse/features/donations/repo/donations_repository.dart';
@@ -88,5 +86,4 @@ Future<void> setupServiceLocator() async {
   sl.registerFactory(() => DeleteDonationCubit(sl()));
   sl.registerLazySingleton(() => DonationsRepository(sl()));
   sl.registerFactory(() => ShowDonationCubit(sl()));
-  sl.registerLazySingleton(() => RegisterRequestsRepository(sl()));
 }

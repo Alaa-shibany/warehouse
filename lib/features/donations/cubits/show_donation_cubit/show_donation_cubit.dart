@@ -3,15 +3,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:warehouse/core/services/status.dart';
 import 'package:dio/dio.dart';
 import 'package:warehouse/core/services/failure_service/failure.dart';
-import 'package:warehouse/core/services/failure_services.dart';
-import '../../repo/register_requests_repository.dart';
-import '../../../categories/models/single_donation_model.dart';
+import 'package:warehouse/features/donations/repo/donations_repository.dart';
+import '../../models/single_donation_model.dart';
 
 part 'show_donation_state.dart';
 part 'show_donation_cubit.freezed.dart';
 
 class ShowDonationCubit extends Cubit<ShowDonationState> {
-  final RegisterRequestsRepository _repository;
+  final DonationsRepository _repository;
   final _cancelToken = CancelToken();
 
   ShowDonationCubit(this._repository) : super(const ShowDonationState());

@@ -13,6 +13,7 @@ _DistributionModel _$DistributionModelFromJson(Map<String, dynamic> json) =>
       distributionId: (json['distributable_id'] as num).toInt(),
       extractionNumber: json['extraction_number'] as String?,
       distributedAt: json['distributed_at'] as String?,
+      distributedType: json['distributable_type'] as String?,
     );
 
 Map<String, dynamic> _$DistributionModelToJson(_DistributionModel instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$DistributionModelToJson(_DistributionModel instance) =>
       'distributable_id': instance.distributionId,
       'extraction_number': instance.extractionNumber,
       'distributed_at': instance.distributedAt,
+      'distributable_type': instance.distributedType,
     };

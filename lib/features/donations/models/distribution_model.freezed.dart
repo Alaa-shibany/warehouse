@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DistributionModel {
 
- int get id; int get amount;@JsonKey(name: 'distributable_id') int get distributionId;@JsonKey(name: 'extraction_number') String? get extractionNumber;@JsonKey(name: 'distributed_at') String? get distributedAt;
+ int get id; int get amount;@JsonKey(name: 'distributable_id') int get distributionId;@JsonKey(name: 'extraction_number') String? get extractionNumber;@JsonKey(name: 'distributed_at') String? get distributedAt;@JsonKey(name: 'distributable_type') String? get distributedType;
 /// Create a copy of DistributionModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $DistributionModelCopyWith<DistributionModel> get copyWith => _$DistributionMode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DistributionModel&&(identical(other.id, id) || other.id == id)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.distributionId, distributionId) || other.distributionId == distributionId)&&(identical(other.extractionNumber, extractionNumber) || other.extractionNumber == extractionNumber)&&(identical(other.distributedAt, distributedAt) || other.distributedAt == distributedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DistributionModel&&(identical(other.id, id) || other.id == id)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.distributionId, distributionId) || other.distributionId == distributionId)&&(identical(other.extractionNumber, extractionNumber) || other.extractionNumber == extractionNumber)&&(identical(other.distributedAt, distributedAt) || other.distributedAt == distributedAt)&&(identical(other.distributedType, distributedType) || other.distributedType == distributedType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,amount,distributionId,extractionNumber,distributedAt);
+int get hashCode => Object.hash(runtimeType,id,amount,distributionId,extractionNumber,distributedAt,distributedType);
 
 @override
 String toString() {
-  return 'DistributionModel(id: $id, amount: $amount, distributionId: $distributionId, extractionNumber: $extractionNumber, distributedAt: $distributedAt)';
+  return 'DistributionModel(id: $id, amount: $amount, distributionId: $distributionId, extractionNumber: $extractionNumber, distributedAt: $distributedAt, distributedType: $distributedType)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $DistributionModelCopyWith<$Res>  {
   factory $DistributionModelCopyWith(DistributionModel value, $Res Function(DistributionModel) _then) = _$DistributionModelCopyWithImpl;
 @useResult
 $Res call({
- int id, int amount,@JsonKey(name: 'distributable_id') int distributionId,@JsonKey(name: 'extraction_number') String? extractionNumber,@JsonKey(name: 'distributed_at') String? distributedAt
+ int id, int amount,@JsonKey(name: 'distributable_id') int distributionId,@JsonKey(name: 'extraction_number') String? extractionNumber,@JsonKey(name: 'distributed_at') String? distributedAt,@JsonKey(name: 'distributable_type') String? distributedType
 });
 
 
@@ -65,13 +65,14 @@ class _$DistributionModelCopyWithImpl<$Res>
 
 /// Create a copy of DistributionModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? amount = null,Object? distributionId = null,Object? extractionNumber = freezed,Object? distributedAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? amount = null,Object? distributionId = null,Object? extractionNumber = freezed,Object? distributedAt = freezed,Object? distributedType = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,distributionId: null == distributionId ? _self.distributionId : distributionId // ignore: cast_nullable_to_non_nullable
 as int,extractionNumber: freezed == extractionNumber ? _self.extractionNumber : extractionNumber // ignore: cast_nullable_to_non_nullable
 as String?,distributedAt: freezed == distributedAt ? _self.distributedAt : distributedAt // ignore: cast_nullable_to_non_nullable
+as String?,distributedType: freezed == distributedType ? _self.distributedType : distributedType // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -157,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  int amount, @JsonKey(name: 'distributable_id')  int distributionId, @JsonKey(name: 'extraction_number')  String? extractionNumber, @JsonKey(name: 'distributed_at')  String? distributedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  int amount, @JsonKey(name: 'distributable_id')  int distributionId, @JsonKey(name: 'extraction_number')  String? extractionNumber, @JsonKey(name: 'distributed_at')  String? distributedAt, @JsonKey(name: 'distributable_type')  String? distributedType)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DistributionModel() when $default != null:
-return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumber,_that.distributedAt);case _:
+return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumber,_that.distributedAt,_that.distributedType);case _:
   return orElse();
 
 }
@@ -178,10 +179,10 @@ return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumbe
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  int amount, @JsonKey(name: 'distributable_id')  int distributionId, @JsonKey(name: 'extraction_number')  String? extractionNumber, @JsonKey(name: 'distributed_at')  String? distributedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  int amount, @JsonKey(name: 'distributable_id')  int distributionId, @JsonKey(name: 'extraction_number')  String? extractionNumber, @JsonKey(name: 'distributed_at')  String? distributedAt, @JsonKey(name: 'distributable_type')  String? distributedType)  $default,) {final _that = this;
 switch (_that) {
 case _DistributionModel():
-return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumber,_that.distributedAt);case _:
+return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumber,_that.distributedAt,_that.distributedType);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +199,10 @@ return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumbe
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  int amount, @JsonKey(name: 'distributable_id')  int distributionId, @JsonKey(name: 'extraction_number')  String? extractionNumber, @JsonKey(name: 'distributed_at')  String? distributedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  int amount, @JsonKey(name: 'distributable_id')  int distributionId, @JsonKey(name: 'extraction_number')  String? extractionNumber, @JsonKey(name: 'distributed_at')  String? distributedAt, @JsonKey(name: 'distributable_type')  String? distributedType)?  $default,) {final _that = this;
 switch (_that) {
 case _DistributionModel() when $default != null:
-return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumber,_that.distributedAt);case _:
+return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumber,_that.distributedAt,_that.distributedType);case _:
   return null;
 
 }
@@ -213,7 +214,7 @@ return $default(_that.id,_that.amount,_that.distributionId,_that.extractionNumbe
 @JsonSerializable()
 
 class _DistributionModel implements DistributionModel {
-  const _DistributionModel({required this.id, required this.amount, @JsonKey(name: 'distributable_id') required this.distributionId, @JsonKey(name: 'extraction_number') required this.extractionNumber, @JsonKey(name: 'distributed_at') required this.distributedAt});
+  const _DistributionModel({required this.id, required this.amount, @JsonKey(name: 'distributable_id') required this.distributionId, @JsonKey(name: 'extraction_number') required this.extractionNumber, @JsonKey(name: 'distributed_at') required this.distributedAt, @JsonKey(name: 'distributable_type') required this.distributedType});
   factory _DistributionModel.fromJson(Map<String, dynamic> json) => _$DistributionModelFromJson(json);
 
 @override final  int id;
@@ -221,6 +222,7 @@ class _DistributionModel implements DistributionModel {
 @override@JsonKey(name: 'distributable_id') final  int distributionId;
 @override@JsonKey(name: 'extraction_number') final  String? extractionNumber;
 @override@JsonKey(name: 'distributed_at') final  String? distributedAt;
+@override@JsonKey(name: 'distributable_type') final  String? distributedType;
 
 /// Create a copy of DistributionModel
 /// with the given fields replaced by the non-null parameter values.
@@ -235,16 +237,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DistributionModel&&(identical(other.id, id) || other.id == id)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.distributionId, distributionId) || other.distributionId == distributionId)&&(identical(other.extractionNumber, extractionNumber) || other.extractionNumber == extractionNumber)&&(identical(other.distributedAt, distributedAt) || other.distributedAt == distributedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DistributionModel&&(identical(other.id, id) || other.id == id)&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.distributionId, distributionId) || other.distributionId == distributionId)&&(identical(other.extractionNumber, extractionNumber) || other.extractionNumber == extractionNumber)&&(identical(other.distributedAt, distributedAt) || other.distributedAt == distributedAt)&&(identical(other.distributedType, distributedType) || other.distributedType == distributedType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,amount,distributionId,extractionNumber,distributedAt);
+int get hashCode => Object.hash(runtimeType,id,amount,distributionId,extractionNumber,distributedAt,distributedType);
 
 @override
 String toString() {
-  return 'DistributionModel(id: $id, amount: $amount, distributionId: $distributionId, extractionNumber: $extractionNumber, distributedAt: $distributedAt)';
+  return 'DistributionModel(id: $id, amount: $amount, distributionId: $distributionId, extractionNumber: $extractionNumber, distributedAt: $distributedAt, distributedType: $distributedType)';
 }
 
 
@@ -255,7 +257,7 @@ abstract mixin class _$DistributionModelCopyWith<$Res> implements $DistributionM
   factory _$DistributionModelCopyWith(_DistributionModel value, $Res Function(_DistributionModel) _then) = __$DistributionModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, int amount,@JsonKey(name: 'distributable_id') int distributionId,@JsonKey(name: 'extraction_number') String? extractionNumber,@JsonKey(name: 'distributed_at') String? distributedAt
+ int id, int amount,@JsonKey(name: 'distributable_id') int distributionId,@JsonKey(name: 'extraction_number') String? extractionNumber,@JsonKey(name: 'distributed_at') String? distributedAt,@JsonKey(name: 'distributable_type') String? distributedType
 });
 
 
@@ -272,13 +274,14 @@ class __$DistributionModelCopyWithImpl<$Res>
 
 /// Create a copy of DistributionModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? amount = null,Object? distributionId = null,Object? extractionNumber = freezed,Object? distributedAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? amount = null,Object? distributionId = null,Object? extractionNumber = freezed,Object? distributedAt = freezed,Object? distributedType = freezed,}) {
   return _then(_DistributionModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as int,distributionId: null == distributionId ? _self.distributionId : distributionId // ignore: cast_nullable_to_non_nullable
 as int,extractionNumber: freezed == extractionNumber ? _self.extractionNumber : extractionNumber // ignore: cast_nullable_to_non_nullable
 as String?,distributedAt: freezed == distributedAt ? _self.distributedAt : distributedAt // ignore: cast_nullable_to_non_nullable
+as String?,distributedType: freezed == distributedType ? _self.distributedType : distributedType // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

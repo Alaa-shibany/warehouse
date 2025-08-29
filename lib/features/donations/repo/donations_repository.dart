@@ -4,6 +4,7 @@ import 'package:warehouse/core/services/api_services.dart';
 import 'package:warehouse/core/services/end_points.dart';
 import 'package:warehouse/core/services/failure_service/failure.dart';
 import 'package:warehouse/core/services/failure_services.dart';
+import 'package:warehouse/features/donations/models/single_donation_model.dart';
 import '../models/donation_model.dart';
 import '../models/create_donation_model.dart';
 import '../models/create_donation_request_body_model.dart';
@@ -102,6 +103,24 @@ class DonationsRepository {
       );
 
       final data = DeleteDonationModel.fromJson(response.data['data']);
+
+      return Right(data);
+    } on DioException catch (e) {
+      return Left(FailureFactory.fromDioException(e));
+    } catch (e) {
+      return Left(FailureFactory(e.toString()));
+    }
+  }
+
+  Future<Either<Failure, SingleDonationModel>> showDonation({
+    required int id,
+  }) async {
+    try {
+      final response = await _apiService.get(
+        "${EndPoints.dashboard_item_show}/$id",
+      );
+
+      final data = SingleDonationModel.fromJson(response.data['data']);
 
       return Right(data);
     } on DioException catch (e) {
